@@ -1,0 +1,17 @@
+{
+    "game": "Tarneeb",
+    "model": "SENet",
+    "ckpt_frequency": 1,
+    "num_updates": 500,
+    "num_games": 20,
+    "weight_decay": 1e-4,
+    "lr": 1e-3,
+    "cpuct": 3,
+    "num_simulations": 50,
+    "batch_size": 64,
+    "num_threads": 1,
+    "cuda": true,
+    "verbose": true,
+    "resume": false,
+    "buffer_size_limit": 50000
+}
