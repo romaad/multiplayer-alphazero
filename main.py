@@ -7,6 +7,7 @@ from models.senetbig import SENetBig
 from games.tictactoe import TicTacToe
 from games.tictacmo import TicTacMo
 from games.connect3x3 import Connect3x3
+from games.tarneeb import Tarneeb
 from neural_network import NeuralNetwork
 from trainer import Trainer
 from experiments import evaluate_against_uninformed

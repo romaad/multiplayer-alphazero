@@ -31,7 +31,7 @@ class BasicBlock(nn.Module):
         out = self.bn2(self.conv2(out))
 
         # Squeeze
-        w = F.avg_pool2d(out, out.size(2))
+        w = F.adaptive_avg_pool2d(out, 1)
         w = F.relu(self.fc1(w))
         w = torch.sigmoid(self.fc2(w))
         # Excitation
@@ -66,7 +66,7 @@ class PreActBlock(nn.Module):
         out = self.conv2(F.relu(self.bn2(out)))
 
         # Squeeze
-        w = F.avg_pool2d(out, out.size(2))
+        w = F.adaptive_avg_pool2d(out, 1)
         w = F.relu(self.fc1(w))
         w = torch.sigmoid(self.fc2(w))
         # Excitation

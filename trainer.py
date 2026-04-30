@@ -50,7 +50,7 @@ class Trainer:
             data.append([s, dist[:,1], None]) # state, prob, outcome
 
             # Sample an action
-            idx = np.random.choice(len(dist), p=dist[:,1].astype(np.float))
+            idx = np.random.choice(len(dist), p=dist[:,1].astype(float))
             a = tuple(dist[idx, 0])
 
             # Apply action
@@ -66,7 +66,7 @@ class Trainer:
         for i, _ in enumerate(data):
             data[i][-1] = scores
 
-        return np.array(data)
+        return np.array(data, dtype=object)
 
 
     # Performs one iteration of policy improvement.

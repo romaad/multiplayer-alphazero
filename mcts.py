@@ -19,7 +19,7 @@ class MCTS():
     # Produces a hash-friendly representation of an ndarray.
     # This is used to index nodes in the accumulated Monte Carlo tree.
     def np_hash(self, data):
-        return data.tostring()
+        return data.tobytes()
 
     # Run a MCTS simulation starting from state s of the tree.
     # The tree is accumulated in the self.tree dictionary.
@@ -53,7 +53,7 @@ class MCTS():
             available_actions = self.game.get_available_actions(s)
             idx = np.stack(np.where(available_actions)).T
             p, v = self.nn.predict(s)
-            stats = np.zeros((len(idx), 4), dtype=np.object)
+            stats = np.zeros((len(idx), 4), dtype=object)
             stats[:,-1] = p
             stats[:,0] = list(idx)
             self.tree[hashed_s] = stats
